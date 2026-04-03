@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utku Kalkanlı — ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── NAVBAR ─── -->
+  <nav id="navbar">
+    <div class="nav-logo">UK<span class="blink">_</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-tag">&gt; hello_world.py</div>
+      <h1 class="hero-name">Utku Kalkanlı</h1>
+      <div class="hero-subtitle">
+        <span class="typing-prefix">$ whoami — </span>
+        <span id="typing-text"></span><span class="cursor">█</span>
+      </div>
+      <p class="hero-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Munich, Germany
+      </p>
+      <div class="hero-cta">
+        <a href="https://github.com/utkukalkanli" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/utkukalkanli" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:kalkanliutku@gmail.com" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Get in Touch
+        </a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>scroll</span>
+      <div class="scroll-chevron"></div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">01</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <p>Machine Learning Engineer with extensive experience in <strong>Computer Vision</strong> and <strong>MLOps</strong>, specializing in 3D vision, anomaly detection, and scalable model deployment.</p>
+          <p>Proven track record building automated data pipelines and optimizing deep learning models for industrial applications — from RF-DETR and YOLO to Gaussian Splatting and Apache Airflow.</p>
+          <p>Currently pursuing a Master's in Informatics at <strong>TU Munich</strong> while working part-time at <strong>Linde AG</strong> and conducting thesis research at <strong>Fraunhofer IKS</strong>.</p>
+        </div>
+        <div class="about-stats fade-in">
+          <div class="stat-chip">
+            <span class="stat-value">5+</span>
+            <span class="stat-label">Years Coding</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-value">3</span>
+            <span class="stat-label">Countries</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-value">91%</span>
+            <span class="stat-label">Radar Accuracy</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-value">+15%</span>
+            <span class="stat-label">mAP Boost</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ─── -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">02</span>
+        <h2>Skills &amp; Tools</h2>
+      </div>
+      <div class="skill-groups">
+        <div class="skill-group fade-in">
+          <h3 class="skill-group-title">
+            <span class="group-icon">⌨</span> Dev Tools &amp; Languages
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Agile / Scrum</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <h3 class="skill-group-title">
+            <span class="group-icon">🧠</span> ML Frameworks
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag accent-purple">PyTorch</span>
+            <span class="skill-tag accent-purple">TensorRT</span>
+            <span class="skill-tag accent-purple">CUDA</span>
+            <span class="skill-tag accent-purple">ONNX Runtime</span>
+            <span class="skill-tag accent-purple">TensorFlow</span>
+            <span class="skill-tag accent-purple">Triton Inference Server</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <h3 class="skill-group-title">
+            <span class="group-icon">⚙</span> MLOps &amp; Data Engineering
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag accent-green">Apache Airflow</span>
+            <span class="skill-tag accent-green">Kubeflow</span>
+            <span class="skill-tag accent-green">MLflow</span>
+            <span class="skill-tag accent-green">Azure ML</span>
+            <span class="skill-tag accent-green">Ray</span>
+            <span class="skill-tag accent-green">Slurm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ROADMAP ─── -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">03</span>
+        <h2>Career Roadmap</h2>
+        <p class="section-subtitle">Every node is a milestone on the journey — 2020 → present</p>
+      </div>
+
+      <div class="roadmap-legend fade-in">
+        <span class="legend-item internship">Internship</span>
+        <span class="legend-item open-source">Open Source</span>
+        <span class="legend-item part-time">Part-Time</span>
+        <span class="legend-item research">Research</span>
+      </div>
+
+      <div class="roadmap">
+        <div class="roadmap-line">
+          <div class="roadmap-pulse"></div>
+        </div>
+
+        <!-- ── Node 1: Cybersoft ── -->
+        <div class="roadmap-item left" data-type="internship">
+          <div class="roadmap-card">
+            <div class="card-meta">
+              <span class="card-company">Cybersoft</span>
+              <span class="card-period">Aug 2020 – Sep 2020</span>
+            </div>
+            <h3 class="card-role">Software Engineering Intern</h3>
+            <span class="card-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ankara, Türkiye
+            </span>
+            <ul class="card-bullets">
+              <li>Built a full-stack web app using the MERN stack (React, Express.js, MongoDB)</li>
+              <li>Applied TailwindCSS, Redux-Toolkit, and Ant-Design on the frontend</li>
+              <li>Collaborated in Agile/Scrum sprints with GitLab version control</li>
+            </ul>
+            <span class="card-metric">Agile · MERN Stack</span>
+          </div>
+          <div class="roadmap-node">
+            <div class="node-year">2020</div>
+            <div class="node-dot"></div>
+          </div>
+          <div class="roadmap-spacer"></div>
+        </div>
+
+        <!-- ── Node 2: OBSS ── -->
+        <div class="roadmap-item right" data-type="internship">
+          <div class="roadmap-spacer"></div>
+          <div class="roadmap-node">
+            <div class="node-dot"></div>
+            <div class="node-year">2021</div>
+          </div>
+          <div class="roadmap-card">
+            <div class="card-meta">
+              <span class="card-company">Open Business Software Solutions</span>
+              <span class="card-period">Jun 2021 – Aug 2021</span>
+            </div>
+            <h3 class="card-role">Software Engineering Intern</h3>
+            <span class="card-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              İstanbul, Türkiye
+            </span>
+            <ul class="card-bullets">
+              <li>Developed a full-stack CRUD app — React frontend + Python Django backend</li>
+              <li>PostgreSQL for data storage, LDAP authentication, Elasticsearch for search</li>
+            </ul>
+            <span class="card-metric">Django · PostgreSQL · Elasticsearch</span>
+          </div>
+        </div>
+
+        <!-- ── Node 3: Novit.AI ── -->
+        <div class="roadmap-item left" data-type="internship">
+          <div class="roadmap-card">
+            <div class="card-meta">
+              <span class="card-company">Novit.AI</span>
+              <span class="card-period">Mar 2022 – Jun 2022</span>
+            </div>
+            <h3 class="card-role">Machine Learning Engineering Intern</h3>
+            <span class="card-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ankara, Türkiye
+            </span>
+            <ul class="card-bullets">
+              <li>Full-stack IoT app: Raspberry Pi node, FastAPI backend, Vue.js SPA frontend</li>
+              <li>Trained XGBoost model; containerized with Docker; image processing via OpenCV</li>
+              <li>Built CI/CD pipeline on GitHub Actions; configured NGINX for load balancing</li>
+            </ul>
+            <span class="card-metric">CI/CD · Docker · FastAPI</span>
+          </div>
+          <div class="roadmap-node">
+            <div class="node-year">2022</div>
+            <div class="node-dot"></div>
+          </div>
+          <div class="roadmap-spacer"></div>
+        </div>
+
+        <!-- ── Node 4: Omdena ── -->
+        <div class="roadmap-item right" data-type="open-source">
+          <div class="roadmap-spacer"></div>
+          <div class="roadmap-node">
+            <div class="node-dot"></div>
+            <div class="node-year"></div>
+          </div>
+          <div class="roadmap-card">
+            <div class="card-meta">
+              <span class="card-company">Omdena</span>
+              <span class="card-period">Oct 2022 – Mar 2023</span>
+            </div>
+            <h3 class="card-role">Technical Lead &amp; Top Collaborator</h3>
+            <span class="card-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Remote
+            </span>
+            <ul class="card-bullets">
+              <li>Led a team of 4 to design an AI closed-captioning system for deaf &amp; hard-of-hearing individuals</li>
+              <li>One-shot learning for actor detection; OpenAI Whisper for speech recognition</li>
+              <li>HuggingFace Transformers for dense video captioning</li>
+            </ul>
+            <span class="card-metric award">🏆 Tech Lead &amp; Top Collaborator Certificate</span>
+          </div>
+        </div>
+
+        <!-- ── Node 5: Linde AG ── -->
+        <div class="roadmap-item left" data-type="part-time">
+          <div class="roadmap-card">
+            <div class="card-meta">
+              <span class="card-company">Linde AG — Digitalization Team</span>
+              <span class="card-period">Oct 2023 – Ongoing</span>
+            </div>
+            <h3 class="card-role">Machine Learning Engineer (Part-Time)</h3>
+            <span class="card-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Munich, Germany
+            </span>
+            <ul class="card-bullets">
+              <li>Raised object-detection model mAP from <strong>80% → 95%</strong>, automating a manual inspection process</li>
+              <li>Built MLOps pipeline with Apache Airflow DAGs for automated data ingestion &amp; training</li>
+              <li>Deployed models on NVIDIA H100 &amp; A100 GPUs with TensorRT for hardware-accelerated inference</li>
+              <li>Co-authored an internal whitepaper and contributed to a <strong>patent application</strong> for anomaly detection</li>
+            </ul>
+            <span class="card-metric">mAP 80% → 95% · Patent Co-Author</span>
+          </div>
+          <div class="roadmap-node">
+            <div class="node-year">2023</div>
+            <div class="node-dot"></div>
+          </div>
+          <div class="roadmap-spacer"></div>
+        </div>
+
+        <!-- ── Node 6: Covadonga ── -->
+        <div class="roadmap-item right" data-type="research">
+          <div class="roadmap-spacer"></div>
+          <div class="roadmap-node">
+            <div class="node-dot"></div>
+            <div class="node-year">2024</div>
+          </div>
+          <div class="roadmap-card">
+            <div class="card-meta">
+              <span class="card-company">Covadonga Maritime</span>
+              <span class="card-period">Nov 2024 – May 2025</span>
+            </div>
+            <h3 class="card-role">Interdisciplinary Project Student (Part-Time)</h3>
+            <span class="card-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Remote, Germany
+            </span>
+            <ul class="card-bullets">
+              <li>Ship identification via passive radar — FFTs, spectrograms, peak analysis</li>
+              <li>Trained Multivariate Bidirectional LSTM &amp; CNNs in PyTorch for time-series classification</li>
+              <li>Exceeded project benchmarks with <strong>91% classification accuracy</strong></li>
+            </ul>
+            <span class="card-metric">91% Accuracy · Bi-LSTM · CNN</span>
+          </div>
+        </div>
+
+        <!-- ── Node 7: Fraunhofer IKS ── -->
+        <div class="roadmap-item left" data-type="research">
+          <div class="roadmap-card">
+            <div class="card-meta">
+              <span class="card-company">Fraunhofer IKS</span>
+              <span class="card-period">Oct 2025 – Ongoing</span>
+            </div>
+            <h3 class="card-role">Computer Vision Research Assistant (Part-Time)</h3>
+            <span class="card-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Munich, Germany
+            </span>
+            <ul class="card-bullets">
+              <li>Master's thesis: 3D vision-based anomaly detection for industrial applications</li>
+              <li>Reconstructed 3D point clouds from multi-view 2D images using <strong>Gaussian Splatting &amp; NeRF</strong></li>
+              <li>Data pipelines with Intel RealSense D455 depth cameras, robotic arm &amp; turntable</li>
+              <li>Anomaly detection on mesh surfaces via Iterative Closest Point (ICP) algorithm</li>
+            </ul>
+            <span class="card-metric">Gaussian Splatting · NeRF · ICP</span>
+          </div>
+          <div class="roadmap-node">
+            <div class="node-year">2025</div>
+            <div class="node-dot pulse-active"></div>
+          </div>
+          <div class="roadmap-spacer"></div>
+        </div>
+
+      </div><!-- /.roadmap -->
+    </div>
+  </section>
+
+  <!-- ─── EDUCATION ─── -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">04</span>
+        <h2>Education</h2>
+      </div>
+      <div class="edu-cards">
+        <div class="edu-card fade-in">
+          <div class="edu-header">
+            <div class="edu-icon">🎓</div>
+            <div>
+              <h3 class="edu-institution">Technical University of Munich</h3>
+              <span class="edu-location">Munich, Germany</span>
+            </div>
+          </div>
+          <div class="edu-degree">Master's Degree in Informatics</div>
+          <div class="edu-period">2022 – Aug 2026 (exp.)</div>
+          <div class="edu-details">
+            <p><strong>Major:</strong> Machine Learning &amp; Analytics</p>
+            <p><strong>Minors:</strong> Databases &amp; Information Systems · Software-Intensive Systems</p>
+            <p><strong>Praktikum:</strong> Advanced Testing of Deep Learning Models — coverage-guided fuzz testing framework, latent-space quality metrics (MNIST, SVHN, GTSRB)</p>
+          </div>
+          <div class="edu-courses">
+            <span class="course-tag">Deep Learning</span>
+            <span class="course-tag">NLP</span>
+            <span class="course-tag">AI in Medicine</span>
+            <span class="course-tag">Cloud Systems</span>
+            <span class="course-tag">Blockchain</span>
+          </div>
+        </div>
+
+        <div class="edu-card fade-in">
+          <div class="edu-header">
+            <div class="edu-icon">🎓</div>
+            <div>
+              <h3 class="edu-institution">Bilkent University</h3>
+              <span class="edu-location">Ankara, Türkiye</span>
+            </div>
+          </div>
+          <div class="edu-degree">Bachelor of Science in Computer Science</div>
+          <div class="edu-period">2018 – Jun 2022</div>
+          <div class="edu-details">
+            <p><strong>GPA:</strong> 3.04 / 4.0</p>
+            <p><strong>Senior Project:</strong> Android driver assistance app — fatigue detection &amp; facial expression recognition with AWS-hosted Flask backend</p>
+          </div>
+          <div class="edu-courses">
+            <span class="course-tag">Intro to ML</span>
+            <span class="course-tag">Software V&amp;V</span>
+            <span class="course-tag">M2M Systems</span>
+            <span class="course-tag">Bioinformatics</span>
+            <span class="course-tag">ALM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CERTIFICATES ─── -->
+  <section id="certificates">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">05</span>
+        <h2>Certificates</h2>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">DeepLearning.AI / Coursera</div>
+          <div class="cert-name">Deep Learning Specialization</div>
+          <div class="cert-date">Nov 2022</div>
+          <div class="cert-topics">Neural Networks · CNN · Sequence Models · Hyperparameter Tuning</div>
+        </div>
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">DeepLearning.AI / Coursera</div>
+          <div class="cert-name">TensorFlow Specialization</div>
+          <div class="cert-date">Nov 2022</div>
+          <div class="cert-topics">TensorFlow · Computer Vision · NLP · Time Series</div>
+        </div>
+        <div class="cert-card fade-in expired">
+          <div class="cert-issuer">Google</div>
+          <div class="cert-name">TensorFlow Developer Professional Certificate</div>
+          <div class="cert-date">Expired</div>
+          <div class="cert-topics">Google-certified TensorFlow development skills</div>
+          <span class="expired-badge">Expired</span>
+        </div>
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">inzva / Google Developers</div>
+          <div class="cert-name">ML Bootcamp — Participant &amp; Mentor</div>
+          <div class="cert-date">Jul – Nov 2022</div>
+          <div class="cert-topics">5-month ML study · 12-week deep learning curriculum · Mentored peers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT / FOOTER ─── -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content fade-in">
+        <h2 class="footer-heading">Let's Connect</h2>
+        <p class="footer-sub">Open to research collaborations, ML engineering roles, and interesting conversations.</p>
+        <div class="footer-links">
+          <a href="mailto:kalkanliutku@gmail.com" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            kalkanliutku@gmail.com
+          </a>
+          <a href="https://github.com/utkukalkanli" target="_blank" rel="noopener" class="icon-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/utkukalkanli" target="_blank" rel="noopener" class="icon-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+        <div class="footer-languages">
+          <div class="lang-item">
+            <span class="lang-name">Turkish</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">English</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:88%"></div></div>
+            <span class="lang-level">Professional</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">German</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:20%"></div></div>
+            <span class="lang-level">Beginner</span>
+          </div>
+        </div>
+        <p class="footer-copy">© 2026 Utku Kalkanlı · Built with ☕ &amp; curiosity</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
