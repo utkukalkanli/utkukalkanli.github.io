@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Utku Kalkanlı — ML Engineer</title>
+  <meta name="description" content="Machine Learning Engineer in Munich building end-to-end computer vision, MLOps and agentic AI systems for industrial applications. Zero-shot 3D anomaly detection at Fraunhofer IKS, RF-DETR &amp; MLOps at Linde GmbH." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -18,6 +19,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#demo">Demo</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -29,6 +31,7 @@
   <!-- ─── HERO ─── -->
   <section id="hero">
     <canvas id="particle-canvas"></canvas>
+    <canvas id="hero-3d"></canvas>
     <div class="hero-content">
       <div class="hero-tag">&gt; hello_world.py</div>
       <h1 class="hero-name">Utku Kalkanlı</h1>
@@ -53,6 +56,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           Get in Touch
         </a>
+        <a href="Utku_Kalkanli_CV.pdf" download class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -70,26 +77,27 @@
       </div>
       <div class="about-content">
         <div class="about-text fade-in">
-          <p>Machine Learning Engineer with extensive experience in <strong>Computer Vision</strong> and <strong>MLOps</strong>, specializing in 3D vision, anomaly detection, and scalable model deployment.</p>
-          <p>Proven track record building automated data pipelines and optimizing deep learning models for industrial applications — from RF-DETR and YOLO to Gaussian Splatting and Apache Airflow.</p>
-          <p>Currently pursuing a Master's in Informatics at <strong>TU Munich</strong> while working part-time at <strong>Linde AG</strong> and conducting thesis research at <strong>Fraunhofer IKS</strong>.</p>
+          <p>Machine Learning Engineer building end-to-end <strong>computer vision</strong>, <strong>MLOps</strong>, and <strong>agentic AI</strong> systems for industrial applications.</p>
+          <p>Currently completing a Master's thesis at <strong>Fraunhofer IKS</strong> on zero-shot 3D vision-based anomaly detection — comparing feed-forward 3D reconstructions against CAD models, with foundation models like CLIP, DINOv2, and VGGT doing the heavy lifting.</p>
+          <p>At <strong>Linde GmbH</strong> I deployed an RF-DETR detector that lifted small-object detection mAP from 80% to 95%, engineered the Airflow/TensorRT pipelines behind it, and am a <strong>named inventor</strong> of an AI-based fault classification method formally claimed under the German Employee Inventions Act.</p>
+          <p>Comfortable across the whole stack — from advanced research to production deployment.</p>
         </div>
         <div class="about-stats fade-in">
           <div class="stat-chip">
-            <span class="stat-value">5+</span>
-            <span class="stat-label">Years Coding</span>
+            <span class="stat-value">80→95%</span>
+            <span class="stat-label">Detection mAP</span>
           </div>
           <div class="stat-chip">
-            <span class="stat-value">3</span>
-            <span class="stat-label">Countries</span>
+            <span class="stat-value">−37.5%</span>
+            <span class="stat-label">ETL Runtime</span>
           </div>
           <div class="stat-chip">
             <span class="stat-value">91%</span>
             <span class="stat-label">Radar Accuracy</span>
           </div>
           <div class="stat-chip">
-            <span class="stat-value">+15%</span>
-            <span class="stat-label">mAP Boost</span>
+            <span class="stat-value">1</span>
+            <span class="stat-label">Patented Invention</span>
           </div>
         </div>
       </div>
@@ -103,22 +111,24 @@
         <span class="section-tag">02</span>
         <h2>Skills &amp; Tools</h2>
       </div>
-      <div class="skill-groups">
+      <div class="skill-view-toggle fade-in" id="skillViewToggle" hidden>
+        <button type="button" class="view-btn active" data-view="grid">Grid</button>
+        <button type="button" class="view-btn" data-view="sphere">Sphere</button>
+      </div>
+
+      <div id="skill-sphere" class="skill-sphere-stage" hidden></div>
+
+      <div class="skill-groups" id="skillGrid">
         <div class="skill-group fade-in">
           <h3 class="skill-group-title">
-            <span class="group-icon">⌨</span> Dev Tools &amp; Languages
+            <span class="group-icon">⌨</span> Languages &amp; Tools
           </h3>
           <div class="skill-tags">
             <span class="skill-tag">Python</span>
-            <span class="skill-tag">C++</span>
             <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Docker</span>
             <span class="skill-tag">Git</span>
-            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Docker</span>
             <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">Flask</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">Agile / Scrum</span>
           </div>
         </div>
         <div class="skill-group fade-in">
@@ -127,24 +137,61 @@
           </h3>
           <div class="skill-tags">
             <span class="skill-tag accent-purple">PyTorch</span>
-            <span class="skill-tag accent-purple">TensorRT</span>
-            <span class="skill-tag accent-purple">CUDA</span>
-            <span class="skill-tag accent-purple">ONNX Runtime</span>
             <span class="skill-tag accent-purple">TensorFlow</span>
-            <span class="skill-tag accent-purple">Triton Inference Server</span>
+            <span class="skill-tag accent-purple">ONNX</span>
+            <span class="skill-tag accent-purple">TensorRT</span>
+            <span class="skill-tag accent-purple">Triton</span>
+            <span class="skill-tag accent-purple">CUDA</span>
           </div>
         </div>
         <div class="skill-group fade-in">
           <h3 class="skill-group-title">
-            <span class="group-icon">⚙</span> MLOps &amp; Data Engineering
+            <span class="group-icon">⚙</span> MLOps &amp; Cloud
           </h3>
           <div class="skill-tags">
+            <span class="skill-tag accent-green">Microsoft Azure</span>
             <span class="skill-tag accent-green">Apache Airflow</span>
-            <span class="skill-tag accent-green">Kubeflow</span>
             <span class="skill-tag accent-green">MLflow</span>
-            <span class="skill-tag accent-green">Azure ML</span>
+            <span class="skill-tag accent-green">Kubeflow</span>
             <span class="skill-tag accent-green">Ray</span>
             <span class="skill-tag accent-green">Slurm</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <h3 class="skill-group-title">
+            <span class="group-icon">🧊</span> 3D Vision
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag accent-amber">VGGT</span>
+            <span class="skill-tag accent-amber">DUSt3R</span>
+            <span class="skill-tag accent-amber">Open3D</span>
+            <span class="skill-tag accent-amber">Gaussian Splatting</span>
+            <span class="skill-tag accent-amber">NeRF</span>
+            <span class="skill-tag accent-amber">ICP</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <h3 class="skill-group-title">
+            <span class="group-icon">💬</span> NLP &amp; LLMs
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag accent-rose">LangChain</span>
+            <span class="skill-tag accent-rose">LangGraph</span>
+            <span class="skill-tag accent-rose">LlamaIndex</span>
+            <span class="skill-tag accent-rose">RAG</span>
+            <span class="skill-tag accent-rose">Agentic AI</span>
+            <span class="skill-tag accent-rose">CLIP</span>
+            <span class="skill-tag accent-rose">DINOv2</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <h3 class="skill-group-title">
+            <span class="group-icon">🔁</span> Methodologies
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Agile</span>
+            <span class="skill-tag">Scrum</span>
+            <span class="skill-tag">CI/CD</span>
           </div>
         </div>
       </div>
@@ -275,12 +322,12 @@
           </div>
         </div>
 
-        <!-- ── Node 5: Linde AG ── -->
+        <!-- ── Node 5: Linde GmbH ── -->
         <div class="roadmap-item left" data-type="part-time">
           <div class="roadmap-card">
             <div class="card-meta">
-              <span class="card-company">Linde AG — Digitalization Team</span>
-              <span class="card-period">Oct 2023 – Ongoing</span>
+              <span class="card-company">Linde GmbH — Digitalization Team</span>
+              <span class="card-period">Oct 2023 – Present</span>
             </div>
             <h3 class="card-role">Machine Learning Engineer (Part-Time)</h3>
             <span class="card-location">
@@ -288,12 +335,14 @@
               Munich, Germany
             </span>
             <ul class="card-bullets">
-              <li>Raised object-detection model mAP from <strong>80% → 95%</strong>, automating a manual inspection process</li>
-              <li>Built MLOps pipeline with Apache Airflow DAGs for automated data ingestion &amp; training</li>
-              <li>Deployed models on NVIDIA H100 &amp; A100 GPUs with TensorRT for hardware-accelerated inference</li>
-              <li>Co-authored an internal whitepaper and contributed to a <strong>patent application</strong> for anomaly detection</li>
+              <li>Optimized the Azure ML MLOps pipeline for the AIRGENIOUS platform — ETL runtime <strong>8h → 5h (−37.5%)</strong></li>
+              <li>Contributed to system design and technical documentation of AIRGENIOUS for <strong>MDR certification</strong></li>
+              <li>Trained &amp; deployed an <strong>RF-DETR</strong> model for satellite-imagery small-object detection, boosting mAP from <strong>80% → 95%</strong> and fully automating an industrial asset monitoring process</li>
+              <li>Engineered the end-to-end MLOps pipeline: Apache Airflow ingestion, automated retraining, TensorRT inference acceleration</li>
+              <li>Researched CNNs &amp; autoencoders in PyTorch for predictive maintenance, using latent-space representations for out-of-distribution anomaly detection</li>
+              <li>Co-authored an internal whitepaper; <strong>named inventor</strong> of “Orbit AI prediction and fault classification for Online Vibration Monitoring of critical rotating machinery” (invention P40700, formally claimed by Linde under the German Employee Inventions Act)</li>
             </ul>
-            <span class="card-metric">mAP 80% → 95% · Patent Co-Author</span>
+            <span class="card-metric">mAP 80→95% · ETL −37.5% · Named Inventor</span>
           </div>
           <div class="roadmap-node">
             <div class="node-year">2023</div>
@@ -333,7 +382,7 @@
           <div class="roadmap-card">
             <div class="card-meta">
               <span class="card-company">Fraunhofer IKS</span>
-              <span class="card-period">Oct 2025 – Ongoing</span>
+              <span class="card-period">Oct 2025 – Present</span>
             </div>
             <h3 class="card-role">Computer Vision Research Assistant (Part-Time)</h3>
             <span class="card-location">
@@ -341,12 +390,15 @@
               Munich, Germany
             </span>
             <ul class="card-bullets">
-              <li>Master's thesis: 3D vision-based anomaly detection for industrial applications</li>
-              <li>Reconstructed 3D point clouds from multi-view 2D images using <strong>Gaussian Splatting &amp; NeRF</strong></li>
-              <li>Data pipelines with Intel RealSense D455 depth cameras, robotic arm &amp; turntable</li>
-              <li>Anomaly detection on mesh surfaces via Iterative Closest Point (ICP) algorithm</li>
+              <li>Master's thesis: 3D vision-based anomaly detection for industrial manufacturing objects</li>
+              <li>Developing a novel <strong>Zero-Shot Learning</strong> anomaly detection model on foundation models — CLIP, DINOv2, VGGT</li>
+              <li>Designing a <strong>VLM-based explainability stage</strong> that renders detected 3D anomalies into 2D views and generates natural-language defect descriptions for quality engineers</li>
+              <li>Building an agentic framework with <strong>LangGraph</strong> &amp; Qwen tool-calling to orchestrate PyTorch domain-adaptation experiments across image domains</li>
+              <li>Reconstructing 3D representations from 2D scenes with feed-forward reconstruction models for <strong>CAD-to-mesh</strong> anomaly comparison</li>
+              <li>Earlier iterations: point clouds from multi-view images via Gaussian Splatting &amp; NeRF, capture pipelines with Intel RealSense D455 depth cameras + robotic arm &amp; turntable, mesh-surface comparison via Iterative Closest Point (ICP)</li>
+              <li>Manuscripts in preparation for <strong>3DV</strong> and <strong>ICRA</strong></li>
             </ul>
-            <span class="card-metric">Gaussian Splatting · NeRF · ICP</span>
+            <span class="card-metric">Zero-Shot · VGGT · LangGraph · 3DV/ICRA</span>
           </div>
           <div class="roadmap-node">
             <div class="node-year">2025</div>
@@ -359,11 +411,55 @@
     </div>
   </section>
 
+  <!-- ─── 3D ANOMALY DETECTION DEMO ─── -->
+  <section id="demo">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">04</span>
+        <h2>Try It: 3D Anomaly Detection</h2>
+        <p class="section-subtitle">A toy version of the thesis pipeline — drag to orbit, scroll to zoom</p>
+      </div>
+
+      <div class="demo-wrap fade-in">
+        <div class="demo-stage" id="demo-stage">
+          <div class="demo-fallback" id="demo-fallback">
+            <p>The interactive 3D view couldn't load here.</p>
+            <p>The gist: a scanned part is compared against its CAD reference, and per-point deviation is rendered as a heat map — the same idea as the zero-shot pipeline described above.</p>
+          </div>
+          <div class="demo-hint" id="demo-hint" hidden>drag to orbit</div>
+        </div>
+
+        <div class="demo-panel">
+          <div class="demo-controls" id="demo-views" role="group" aria-label="Render mode">
+            <button type="button" class="demo-btn active" data-mode="points" disabled>Point Cloud</button>
+            <button type="button" class="demo-btn" data-mode="mesh" disabled>Mesh</button>
+            <button type="button" class="demo-btn" data-mode="cad" disabled>CAD Reference</button>
+          </div>
+          <div class="demo-actions">
+            <button type="button" class="btn btn-primary" id="demo-run" disabled>Run Detection</button>
+            <button type="button" class="btn btn-outline" id="demo-reset" disabled>Reset</button>
+          </div>
+          <div class="demo-legend" id="demo-legend">
+            <span class="legend-label">0.0 mm</span>
+            <div class="legend-bar"></div>
+            <span class="legend-label" id="demo-legend-max">—</span>
+          </div>
+          <p class="demo-status" id="demo-status">Scan loaded. Run detection to compare against the CAD reference.</p>
+        </div>
+      </div>
+
+      <p class="demo-caption fade-in">
+        Illustrative only — the geometry and its defects are generated procedurally in the browser, not real thesis data.
+        Deviation is measured per vertex against the undeformed reference surface and mapped onto a blue → red ramp.
+      </p>
+    </div>
+  </section>
+
   <!-- ─── EDUCATION ─── -->
   <section id="education">
     <div class="container">
       <div class="section-header fade-in">
-        <span class="section-tag">04</span>
+        <span class="section-tag">05</span>
         <h2>Education</h2>
       </div>
       <div class="edu-cards">
@@ -375,19 +471,20 @@
               <span class="edu-location">Munich, Germany</span>
             </div>
           </div>
-          <div class="edu-degree">Master's Degree in Informatics</div>
-          <div class="edu-period">2022 – Aug 2026 (exp.)</div>
+          <div class="edu-degree">M.Sc. Informatics</div>
+          <div class="edu-period">Apr 2023 – Oct 2026 (exp.)</div>
           <div class="edu-details">
             <p><strong>Major:</strong> Machine Learning &amp; Analytics</p>
-            <p><strong>Minors:</strong> Databases &amp; Information Systems · Software-Intensive Systems</p>
+            <p><strong>Minors:</strong> Scientific Computing &amp; High-Performance Computing · Engineering Software-Intensive Systems · Databases &amp; Information Systems</p>
+            <p><strong>Master's Thesis</strong> (with Fraunhofer IKS): <em>Zero-Shot 3D Vision-Based Anomaly Detection for Industrial Parts</em> — manuscripts in preparation for 3DV and ICRA</p>
             <p><strong>Praktikum:</strong> Advanced Testing of Deep Learning Models — coverage-guided fuzz testing framework, latent-space quality metrics (MNIST, SVHN, GTSRB)</p>
           </div>
           <div class="edu-courses">
             <span class="course-tag">Deep Learning</span>
             <span class="course-tag">NLP</span>
             <span class="course-tag">AI in Medicine</span>
-            <span class="course-tag">Cloud Systems</span>
-            <span class="course-tag">Blockchain</span>
+            <span class="course-tag">Data Visualization</span>
+            <span class="course-tag">HPC</span>
           </div>
         </div>
 
@@ -399,18 +496,16 @@
               <span class="edu-location">Ankara, Türkiye</span>
             </div>
           </div>
-          <div class="edu-degree">Bachelor of Science in Computer Science</div>
-          <div class="edu-period">2018 – Jun 2022</div>
+          <div class="edu-degree">B.Sc. Computer Science</div>
+          <div class="edu-period">Sep 2017 – Jun 2022</div>
           <div class="edu-details">
-            <p><strong>GPA:</strong> 3.04 / 4.0</p>
-            <p><strong>Senior Project:</strong> Android driver assistance app — fatigue detection &amp; facial expression recognition with AWS-hosted Flask backend</p>
+            <p><strong>Senior Project:</strong> Android driver assistance app — fatigue detection &amp; facial expression recognition using OpenCV with an AWS-hosted Flask backend</p>
           </div>
           <div class="edu-courses">
             <span class="course-tag">Intro to ML</span>
             <span class="course-tag">Software V&amp;V</span>
+            <span class="course-tag">Bioinformatics Algorithms</span>
             <span class="course-tag">M2M Systems</span>
-            <span class="course-tag">Bioinformatics</span>
-            <span class="course-tag">ALM</span>
           </div>
         </div>
       </div>
@@ -421,7 +516,7 @@
   <section id="certificates">
     <div class="container">
       <div class="section-header fade-in">
-        <span class="section-tag">05</span>
+        <span class="section-tag">06</span>
         <h2>Certificates</h2>
       </div>
       <div class="cert-grid">
@@ -433,22 +528,15 @@
         </div>
         <div class="cert-card fade-in">
           <div class="cert-issuer">DeepLearning.AI / Coursera</div>
-          <div class="cert-name">TensorFlow Specialization</div>
+          <div class="cert-name">TensorFlow Developer Specialization</div>
           <div class="cert-date">Nov 2022</div>
           <div class="cert-topics">TensorFlow · Computer Vision · NLP · Time Series</div>
         </div>
-        <div class="cert-card fade-in expired">
-          <div class="cert-issuer">Google</div>
-          <div class="cert-name">TensorFlow Developer Professional Certificate</div>
-          <div class="cert-date">Expired</div>
-          <div class="cert-topics">Google-certified TensorFlow development skills</div>
-          <span class="expired-badge">Expired</span>
-        </div>
         <div class="cert-card fade-in">
-          <div class="cert-issuer">inzva / Google Developers</div>
+          <div class="cert-issuer">Google Developers &amp; inzva</div>
           <div class="cert-name">ML Bootcamp — Participant &amp; Mentor</div>
           <div class="cert-date">Jul – Nov 2022</div>
-          <div class="cert-topics">5-month ML study · 12-week deep learning curriculum · Mentored peers</div>
+          <div class="cert-topics">5-month TensorFlow &amp; ML program · Deep Learning Study Group #8 (12-week deeplearning.ai curriculum) · Mentored fellow participants</div>
         </div>
       </div>
     </div>
@@ -464,6 +552,10 @@
           <a href="mailto:kalkanliutku@gmail.com" class="btn btn-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             kalkanliutku@gmail.com
+          </a>
+          <a href="Utku_Kalkanli_CV.pdf" download class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
           </a>
           <a href="https://github.com/utkukalkanli" target="_blank" rel="noopener" class="icon-link">
             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -485,8 +577,8 @@
           </div>
           <div class="lang-item">
             <span class="lang-name">German</span>
-            <div class="lang-bar"><div class="lang-fill" style="width:20%"></div></div>
-            <span class="lang-level">Beginner</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
+            <span class="lang-level">Intermediate · B1</span>
           </div>
         </div>
         <p class="footer-copy">© 2026 Utku Kalkanlı · Built with ☕ &amp; curiosity</p>
@@ -495,5 +587,16 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- three.js — loaded from CDN; every 3D scene degrades gracefully if this fails -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="three-scenes.js"></script>
 </body>
 </html>

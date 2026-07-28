@@ -107,6 +107,13 @@
     W = canvas.width  = window.innerWidth;
     H = canvas.height = window.innerHeight;
   });
+
+  // The WebGL hero (three-scenes.js) calls this once it has successfully taken
+  // over the background. If three.js never loads, this canvas keeps running.
+  window.__stop2DParticles = function () {
+    cancelAnimationFrame(raf);
+    canvas.style.display = 'none';
+  };
 })();
 
 /* ─────────────────────────────────────────────
@@ -121,6 +128,8 @@
     'Computer Vision Specialist',
     'MLOps Enthusiast',
     '3D Vision Researcher',
+    'Zero-Shot Anomaly Detection',
+    'Agentic AI Builder',
     'Deep Learning Practitioner',
   ];
 

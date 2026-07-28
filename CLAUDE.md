@@ -2,65 +2,76 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Repository Structure
+## What this is
 
-This git repository is rooted at the home directory (`~/`) and tracks a full-stack web application project located at `~/Developer/Project/`, along with a senior project (SAVE) and resume PDF. The main application code lives in:
+Utku Kalkanlı's personal portfolio site — a single-page, hand-written static site published to
+**GitHub Pages** at `https://utkukalkanli.github.io` (repo: `utkukalkanli/utkukalkanli.github.io`).
 
-- `~/Developer/Project/backend/` — Spring Boot (Java) REST API
-- `~/Developer/Project/frontend/` — React (JavaScript) SPA
+Pushing to `main` deploys. There is no build step, no CI, and no staging environment — whatever
+lands on `main` is live within a minute or two. Review changes locally before pushing.
 
-## Backend (Spring Boot)
+## Running it
 
-**Build & Run:**
+No toolchain, no `npm install`. Serve the directory over HTTP (not `file://` — the ES module and
+the import map need a real origin):
+
 ```bash
-cd ~/Developer/Project/backend
-./mvnw spring-boot:run       # Run the application
-./mvnw package               # Build JAR
-./mvnw test                  # Run tests
+python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
-**Configuration:** `src/main/resources/application.properties`
-- Requires a MySQL database named `obss` running on `localhost:3306`
-- Default credentials: root/utku (local dev only)
-- JWT secret and expiration configured here
+## Files
 
-**Architecture:**
-- Spring Boot 2.1.8 with Spring Security + JWT authentication
-- MySQL via Spring Data JPA (Hibernate, `ddl-auto=update`)
-- Lombok used throughout models
-- Package root: `com.example.backend`
-  - `controllers/` — REST controllers (`/api/...` prefix)
-  - `models/` — JPA entities (User, MentorApplication, Mentorship, Phase)
-  - `repository/` — Spring Data JPA repositories
-  - `security/` — JWT filter chain, `WebSecurityConfig`, `UserDetailsServiceImpl`
-  - `payload/request|response/` — request/response DTOs
-  - `dto/` — additional DTOs
+| File | Role |
+|---|---|
+| `index.html` | The entire page. Sections in order: hero, about, skills, experience, demo, education, certificates, contact/footer. |
+| `style.css` | All styling. Design tokens live in `:root` at the top. |
+| `script.js` | Classic script (not a module): 2D particle background, typing animation, nav, scroll fade-ins, language bars. |
+| `three-scenes.js` | ES module: all three WebGL scenes. Loaded via an import map pointing at unpkg. |
+| `Utku_Kalkanli_CV.pdf` | Linked from the hero and footer. Replace in place — the filename is referenced in `index.html`. |
 
-**Auth flow:** Login → JWT issued → `AuthTokenFilter` validates JWT on each request via `Authorization: Bearer <token>` header.
+## Conventions
 
-**Key API endpoints:**
-- `POST /api/auth/signin`, `POST /api/auth/signup`
-- `GET|POST|PUT|DELETE /api/applications/...` — mentor applications
-- `GET|POST|PUT|DELETE /api/mentorships/...` — mentorships
-- `/api/phases/...` — phases within mentorships
+- **Design tokens**: colours, fonts, radii and the shared transition are CSS custom properties in
+  `:root` (`style.css`). Use `var(--cyan)`, `var(--purple)`, `var(--font-mono)` etc. rather than
+  hard-coded values. Accent variants follow the pattern `.skill-tag.accent-<name>`.
+- **Section numbering**: each `.section-tag` carries a two-digit number (`01`…`06`). Inserting a
+  section means renumbering the ones after it.
+- **Scroll animation**: adding `class="fade-in"` to an element opts it into the
+  IntersectionObserver in `script.js`. Siblings sharing the first class name are staggered.
+- **Content is hand-maintained.** The page mirrors the CV but is not generated from it. When the
+  PDF changes, the corresponding HTML has to be edited by hand.
 
-## Frontend (React)
+## The 3D scenes (`three-scenes.js`)
 
-**Run & Build:**
-```bash
-cd ~/Developer/Project/frontend
-npm start        # Dev server on port 8081 (set in .env)
-npm run build    # Production build
-npm test         # Run tests
-```
+three.js r160 is pulled from unpkg through an `<script type="importmap">` in `index.html`
+(`three` and `three/addons/`). To upgrade, bump the version in **both** import-map entries.
 
-**Architecture:**
-- React 16 class components with React Router v5
-- Bootstrap 4 for styling
-- Axios for HTTP requests (via `src/services/`)
-- JWT stored in localStorage; `auth-header.js` attaches it to requests
-- Role-based UI: admin board visible only to `ROLE_ADMIN` users
-- `src/services/auth.service.js` — login/logout/register, localStorage management
-- `src/services/user.service.js` — API calls for board content
-- `src/components/` — page-level components (login, register, profile, boards)
-- `src/common/EventBus.js` — pub/sub for logout events across components
+Three independent scenes, each guarded so a failure never breaks the page:
+
+1. **Hero point cloud** (`#hero-3d`) — `THREE.Points` over a jittered torus-knot surface with a
+   custom shader "line scanner" sweep, mouse parallax and slow rotation.
+2. **Skill sphere** (`#skill-sphere`) — `CSS3DRenderer`, so each tag stays a real styled DOM node.
+   Tags sit on a Fibonacci sphere; positions are rotated each frame while object rotation stays
+   identity, which billboards them for free. Exposed behind a Grid ⇄ Sphere toggle.
+3. **Anomaly demo** (`#demo`) — a procedural lathe "part" with Gaussian defects displaced along the
+   normals. The undeformed geometry is the CAD reference; per-vertex deviation is the known
+   displacement (no ICP needed) and is painted onto a blue→red ramp.
+
+### Rules to preserve when editing
+
+- **Progressive enhancement is the contract.** Everything degrades if the CDN is blocked or WebGL
+  is missing: `#particle-canvas` keeps animating (the module only calls
+  `window.__stop2DParticles()` after the hero initialises), the demo shows explanatory text with
+  its controls left `disabled`, and the skills grid is the default view. Test this by pointing the
+  import map at a dead host.
+- **Render loops** go through `createLoop()`, which pauses on `visibilitychange` and when the
+  element scrolls off screen. Two subtleties that are easy to reintroduce as bugs: `onScreen`
+  starts `true` (waiting on the observer's first callback leaves a blank canvas for several
+  frames), and the callback must read the **last** entry — coalesced records mean `entries[0]` can
+  latch a stale "off screen" and freeze the scene permanently.
+- **GLSL `smoothstep` edges must be increasing.** `smoothstep(0.5, 0.0, x)` is undefined behaviour
+  and renders nothing on some drivers; write `1.0 - smoothstep(0.0, 0.5, x)`.
+- **`hidden` needs a CSS escape hatch.** Any element with a `display` rule in `style.css` also
+  needs a `[hidden] { display: none }` rule, or the attribute silently does nothing.
+- **Respect `prefers-reduced-motion`**: the hero renders one static frame and the sphere is skipped
+  entirely. The sphere is also skipped below 720px.
