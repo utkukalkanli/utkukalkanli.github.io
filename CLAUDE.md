@@ -23,23 +23,25 @@ python3 -m http.server 8000   # then open http://localhost:8000
 
 | File | Role |
 |---|---|
-| `index.html` | The entire page. Sections in order: hero, about, skills, experience, demo, education, certificates, contact/footer. |
+| `index.html` | The entire page. Sections in order: hero, about, skills, experience, demo, education, contact/footer. |
 | `style.css` | All styling. Design tokens live in `:root` at the top. |
 | `script.js` | Classic script (not a module): 2D particle background, typing animation, nav, scroll fade-ins, language bars. |
 | `three-scenes.js` | ES module: all three WebGL scenes. Loaded via an import map pointing at unpkg. |
-| `Utku_Kalkanli_CV.pdf` | Linked from the hero and footer. Replace in place — the filename is referenced in `index.html`. |
+| `Utku_Kalkanli_{AI_Engineer,Computer_Vision_Engineer,MLOps_Engineer}_CV.pdf` | The three base CVs, offered from the "Download CV" `<details>` menus in the hero and footer. Copied from `cv/` in the private `utkukalkanli/job_search` repo (LaTeX sources live there). Replace in place — the filenames are referenced in `index.html`. |
 
 ## Conventions
 
 - **Design tokens**: colours, fonts, radii and the shared transition are CSS custom properties in
   `:root` (`style.css`). Use `var(--cyan)`, `var(--purple)`, `var(--font-mono)` etc. rather than
   hard-coded values. Accent variants follow the pattern `.skill-tag.accent-<name>`.
-- **Section numbering**: each `.section-tag` carries a two-digit number (`01`…`06`). Inserting a
+- **Section numbering**: each `.section-tag` carries a two-digit number (`01`…`05`). Inserting a
   section means renumbering the ones after it.
 - **Scroll animation**: adding `class="fade-in"` to an element opts it into the
   IntersectionObserver in `script.js`. Siblings sharing the first class name are staggered.
-- **Content is hand-maintained.** The page mirrors the CV but is not generated from it. When the
-  PDF changes, the corresponding HTML has to be edited by hand.
+- **Content is hand-maintained.** The page mirrors the CVs but is not generated from them. When the
+  CVs change, the corresponding HTML has to be edited by hand. Every figure and claim on the page must
+  match the CVs; don't add facts that aren't on them (the Trendyol and Omdena cards are deliberate
+  exceptions).
 
 ## The 3D scenes (`three-scenes.js`)
 

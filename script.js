@@ -125,12 +125,11 @@
 
   const titles = [
     'Machine Learning Engineer',
-    'Computer Vision Specialist',
-    'MLOps Enthusiast',
-    '3D Vision Researcher',
-    'Zero-Shot Anomaly Detection',
-    'Agentic AI Builder',
-    'Deep Learning Practitioner',
+    'AI Engineer',
+    'LLM, RAG & Agent Systems',
+    'MLOps Engineer',
+    'Computer Vision Engineer',
+    'CAD-Referenced Anomaly Detection',
   ];
 
   let titleIdx  = 0;
@@ -267,4 +266,19 @@
   }, { threshold: 0.4 });
 
   sections.forEach(s => io.observe(s));
+})();
+
+/* ─────────────────────────────────────────────
+   CV MENU — close on outside click / Escape
+───────────────────────────────────────────── */
+(function () {
+  const menus = document.querySelectorAll('.cv-menu');
+  if (!menus.length) return;
+
+  document.addEventListener('click', e => {
+    menus.forEach(m => { if (m.open && !m.contains(e.target)) m.open = false; });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') menus.forEach(m => { m.open = false; });
+  });
 })();
